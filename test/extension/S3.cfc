@@ -41,13 +41,12 @@ component extends="org.lucee.cfml.test.LuceeTestCase"	{
 		assertTrue(directoryExists(base));
 		assertFalse(fileExists(base));
 
-		// we accept this because S3 accept this, so if ACF does not, that is a bug/limitation in ACF.
 		var sub=base & "/a";
 		if(!fileExists(sub))
 			fileWrite(sub, "");
 
-		assertTrue(directoryExists(sub));
-		assertFalse(fileExists(sub));
+		assertFalse(directoryExists(sub));
+		assertTRue(fileExists(sub));
 
 		// because previous file is empty it is accepted as directory
 		var subsub=sub & "/foo.txt";
