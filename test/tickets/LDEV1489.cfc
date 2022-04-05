@@ -63,7 +63,6 @@
 					var acl = StoreGetACL( baseWithBucketName & "/test3.txt" );
 					removeFullControl(acl);
 					var result = acl[1].permission & "|" & acl[2].permission;
-					expect(result).toBe('WRITE|READ');
 					expect(listSort(result,"textnocase","asc","|") ).toBe('READ|WRITE');
 				});
 
